@@ -15,23 +15,28 @@ from sklearn.preprocessing import MinMaxScaler
 ##############################################################################
 
 # import tables
+
 transactions = pd.read_excel("data/grocery_database.xlsx", sheet_name = "transactions")
 product_areas = pd.read_excel("data/grocery_database.xlsx", sheet_name = "product_areas")
 
 
 # merge on the product area name
+
 transactions = pd.merge(transactions, product_areas, how = "inner", on = "product_area_id")
 
 
 # drop the non-food category
+
 transactions.drop(transactions[transactions["product_area_name"] == "Non-Food"].index, inplace = True)
 
 
 # aggregate sales at customer level (by product area)
+
 transactions_summary = transactions.groupby(["customer_id", "product_area_name"])["sales_cost"].sum().reset_index()
 
 
 # pivot data to place product areas as columns
+
 transactions_summary_pivot = transactions.pivot_table(index = "customer_id",
                                                       columns = "product_area_name",
                                                       values = "sales_cost",
@@ -41,10 +46,12 @@ transactions_summary_pivot = transactions.pivot_table(index = "customer_id",
 
 
 # Turn sales into % sales
+
 transactions_summary_pivot = transactions_summary_pivot.div(transactions_summary_pivot["Total"], axis = 0)
 
 
 # drop the "total" column
+
 data_for_clustering = transactions_summary_pivot.drop(["Total"], axis = 1)
 
 
@@ -54,10 +61,12 @@ data_for_clustering = transactions_summary_pivot.drop(["Total"], axis = 1)
 ##############################################################################
 
 # check for missing values
+
 data_for_clustering.isna().sum()
 
 
 # normalise data
+
 scale_norm = MinMaxScaler()
 data_for_clustering_scaled = pd.DataFrame(scale_norm.fit_transform(data_for_clustering), columns = data_for_clustering.columns)
 
@@ -82,8 +91,6 @@ plt.ylabel("WCSS Score")
 plt.tight_layout()
 plt.show()
 
-
-
 ##############################################################################
 # INSTANTIATE THE MODEL
 ##############################################################################
@@ -97,11 +104,13 @@ kmeans.fit(data_for_clustering_scaled)
 # USE CLUSTER INFORMATION
 ##############################################################################
 
-# add cluster labels to our data
+# Add cluster labels to our data
+
 data_for_clustering["cluster"] = kmeans.labels_
 
 
 # check cluster sizes
+
 data_for_clustering["cluster"].value_counts()
 
 
