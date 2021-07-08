@@ -3,7 +3,7 @@
 #### This repository is a collection of both basic and advanced code templates for Model Building
 #### All codes I am sharing are from the practical exercises I did from the Data Science Infinity Program
 #### You are free to fork this repository
-#### Will continue to update this repository
+#### Will continue to update this repository as I'm still completing the program 
 
 ## Machine Learning Model: Model Building Templates:
 ##### - Creating a Regression Data
