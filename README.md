@@ -19,4 +19,5 @@
 ##### - Classification Tree Advanced
 ##### - K-means Clustering Basic
 ##### - K-means Clustering Advanced
+##### - Principal Component Analysis (PCA)
 ##### - Association Rule Learning
