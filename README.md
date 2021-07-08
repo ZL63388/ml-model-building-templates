@@ -5,8 +5,8 @@
 
 #### You are free to fork this repository
 
-#### Will continue to update this repository as I'm still completing the program as of July 8, 2021
-##### To be added soon once completed:
+## Will continue to update this repository as I'm still completing the program as of July 8, 2021
+#### To be added soon once completed:
 ##### - Random Forests Classification Basic
 ##### - Random Forests Classification Advanced
 ##### - K-Nearest-Neighbours (KNN) for Classification
