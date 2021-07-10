@@ -12,7 +12,6 @@
 ##### - K-Nearest-Neighbours (KNN) for Classification
 ##### - Grid Search for Hyperparameter Tuning
 ##### - Automating Workflows with Pipelines
-##### - Causal Impact Analysis
 ##### - Machine Learning Model Deployment
 
 
@@ -32,3 +31,4 @@
 ##### - K-means Clustering Advanced
 ##### - Principal Component Analysis (PCA)
 ##### - Association Rule Learning
+##### - Causal Impact Analysis
